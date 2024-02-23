@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWeather</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <h1>Weather Forecast App</h1>
+    <div class="container">
+        <form id="myForm" method="post">
+            <label for="C_code" >Country Code:</label>
+            <input type="text" id="Country"  name="C_code" placeholder="Country Code">
+
+            <label for="City_code">City:</label>
+            <input type="text" id="City" name="c_code" placeholder="City Name">
+
+            <label for="api_id">Api key:</label>
+            <input type="text" id="api_id" name="api" placeholder="Enter Your Unique Api Key">
+
+            <label for="submit"></label>
+            <input id="get" type="submit" value="Submit" formaction="/get-Climate">
+            <br>
+            
+            <br>
+            <br>
+            
+                <%if(locals.data){%>
+                <div class="main">Weather: <%= locals.Weather %>
+                    <div id="icon"><img id="wicon" src="<%= locals.Weathericon %>" alt="Weather icon"></div>
+                    <p>Condition: <%= locals.WeatherDes %>
+                    </p>
+            </div>
+                <%} else {%>
+                    <p>Input Value First.</p>  
+                <%}%>
+    </div>
+</body>
+
+</html>
